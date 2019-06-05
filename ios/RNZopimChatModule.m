@@ -19,13 +19,13 @@ RCT_EXPORT_MODULE(RNZopimChatModule);
 
 
 RCT_EXPORT_METHOD(setPushToken: (NSData*)tokenData) {
-	[[ZDKConfig instance] enablePushWithDeviceID:tokenData callback:^(ZDKPushRegistrationResponse *registrationResponse, NSError *error) {
+	/* [[ZDKConfig instance] enablePushWithDeviceID:tokenData callback:^(ZDKPushRegistrationResponse *registrationResponse, NSError *error) {
     if (error) {
         [ZDKLogger log:@"Couldn't register device: %@. Error: %@", tokenData, error];
     } else if (registrationResponse) {
         [ZDKLogger log:@"Successfully registered device: %@", tokenData];
     }
-  }];
+  }]; */
 }
 
 RCT_EXPORT_METHOD(setVisitorInfo:(NSDictionary *)options) {
