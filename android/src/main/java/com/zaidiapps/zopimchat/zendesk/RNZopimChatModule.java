@@ -30,22 +30,21 @@ public class RNZopimChatModule extends ReactContextBaseJavaModule {
         return "RNZopimChatModule";
     }
 
-    public void registerDeviceForPushNotifications(String fcm_token){
-        final String TAG = "RNZopimChatModule";
-        ZendeskConfig.INSTANCE.enablePushWithIdentifier(fcm_token, new ZendeskCallback<PushRegistrationResponse>() {
-            @Override
-            public void onSuccess(PushRegistrationResponse pushRegistrationResponse) {
-                Log.d(TAG, "onSuccess: pushRegistrationResponse");
-            }
-            @Override
-            public void onError(ErrorResponse errorResponse) {
-                Log.d(TAG, "onError: ",(Throwable) errorResponse);
-            }
-        });
+    public void registerDeviceForPushNotifications(String fcm_token) {
+        /*
+         * final String TAG = "RNZopimChatModule";
+         * ZendeskConfig.INSTANCE.enablePushWithIdentifier(fcm_token, new
+         * ZendeskCallback<PushRegistrationResponse>() {
+         * 
+         * @Override public void onSuccess(PushRegistrationResponse
+         * pushRegistrationResponse) { Log.d(TAG,
+         * "onSuccess: pushRegistrationResponse"); }
+         * 
+         * @Override public void onError(ErrorResponse errorResponse) { Log.d(TAG,
+         * "onError: ",(Throwable) errorResponse); } });
+         */
 
     }
-
-
 
     @ReactMethod
     public void setVisitorInfo(ReadableMap options) {
@@ -70,11 +69,11 @@ public class RNZopimChatModule extends ReactContextBaseJavaModule {
     public void init(String key) {
         ZopimChat.init(key);
     }
-	
-	@ReactMethod
-	public void setPushToken(String token){
+
+    @ReactMethod
+    public void setPushToken(String token) {
         registerDeviceForPushNotifications(token);
-	}
+    }
 
     @ReactMethod
     public void startChat(ReadableMap options) {
